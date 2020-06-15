@@ -38,12 +38,7 @@ namespace Dexiom.EPPlusExporter
         {
             if (_propertyInfo != null)
             {
-#if NET4
-                return _propertyInfo.GetValue(item, null);
-#endif
-#if NET45 || NET46
-            return  _propertyInfo.GetValue(item);
-#endif
+                return _propertyInfo.GetValue(item);
             }
 
             return _dynamicProperty.GetValue(item);

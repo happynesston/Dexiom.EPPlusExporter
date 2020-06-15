@@ -2,7 +2,7 @@
 
 namespace Dexiom.EPPlusExporter
 {
-    public static class DynamicProperty
+    public static class DynamicProp
     {
         public static DynamicProp<T> Create<T>(Func<T, object> getValue, Type valueType) where T : class => new DynamicProp<T>(getValue, valueType);
     }
