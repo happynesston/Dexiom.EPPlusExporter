@@ -99,7 +99,10 @@ namespace EPPlusExporterDemo
             Directory.CreateDirectory("temp");
             var fileInfo = new FileInfo($"temp\\Test_{Guid.NewGuid():N}.xlsx");
             excelPackage.SaveAs(fileInfo);
-            Process.Start(fileInfo.FullName);
+            var process = new Process();
+            process.StartInfo.UseShellExecute = true;
+            process.StartInfo.FileName = fileInfo.FullName;
+            process.Start();
         }
     }
 }

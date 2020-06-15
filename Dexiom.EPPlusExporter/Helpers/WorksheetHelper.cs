@@ -6,6 +6,7 @@ using Dexiom.EPPlusExporter.Extensions;
 using OfficeOpenXml;
 using OfficeOpenXml.Table;
 using System;
+using OfficeOpenXml.FormulaParsing.ExcelUtilities;
 
 namespace Dexiom.EPPlusExporter.Helpers
 {
@@ -16,7 +17,7 @@ namespace Dexiom.EPPlusExporter.Helpers
         #region Internal
         internal static void FormatAsTable(ExcelRangeBase range, TableStyles tableStyle, string tableName, bool autoFitColumns = true)
         {
-            string escapedTableName = FormatTableName(tableName);
+            string escapedTableName = ExcelAddressUtil.GetValidName(tableName);
 
             //format the table
             var table = range.Worksheet.Tables.Add(range, escapedTableName);
